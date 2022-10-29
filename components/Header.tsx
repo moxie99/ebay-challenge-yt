@@ -17,7 +17,7 @@ function Header({}: Props): ReactElement {
   const address = useAddress();
 
   return (
-    <div className="max-w-6xl mx-auto p-3">
+    <div className="max-w-6xl p-3 mx-auto">
       <nav className="flex justify-between">
         <div className="flex items-center space-x-3 text-sm">
           {address ? (
@@ -45,18 +45,18 @@ function Header({}: Props): ReactElement {
             Add to Inventory
             <ChevronDownIcon className="h-5" />
           </Link>
-          <BellIcon className="h-6 w-6" />
-          <ShoppingCartIcon className="h-6 w-6" />
+          <BellIcon className="w-6 h-6" />
+          <ShoppingCartIcon className="w-6 h-6" />
         </div>
       </nav>
 
       <hr className="mt-2" />
 
-      <section className="flex items-center space-x-4 py-4">
-        <div className="h-16 w-16 sm:w-20 md:w-44 flex-shrink-0 cursor-pointer">
+      <section className="flex items-center py-4 space-x-4">
+        <div className="flex-shrink-0 w-16 h-16 cursor-pointer sm:w-20 md:w-44">
           <Link href="/">
             <Image
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
               src="https://upload.wikimedia.org/wikipedia/commons/e/e8/1Asset_8.png"
               alt="Thirdweb Logo"
               width={100}
@@ -64,41 +64,41 @@ function Header({}: Props): ReactElement {
             />
           </Link>
         </div>
-        <button className="items-center flex space-x-2 w-20 hidden lg:flex">
-          <p className="text-gray-800 text-sm">Shop by Category</p>
-          <ChevronDownIcon className="h-4 flex-shrink-0" />
+        <button className="flex items-center hidden w-20 space-x-2 lg:flex">
+          <p className="text-sm text-gray-800">Shop by Category</p>
+          <ChevronDownIcon className="flex-shrink-0 h-4" />
         </button>
-        <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black border-2 flex-1">
-          <MagnifyingGlassIcon className="w-5 text-gray-600 h-5" />
+        <div className="flex items-center flex-1 px-2 py-2 space-x-2 border-2 border-black md:px-5">
+          <MagnifyingGlassIcon className="w-5 h-5 text-gray-600" />
           <input
             className="flex-1 outline-none"
             placeholder="Search for any "
           />
         </div>
-        <button className="hidden sm:inline bg-red-900 text-white px-5 md:px-10 py-2 border-2 border-red-900">
+        <button className="hidden px-5 py-2 text-white bg-red-900 border-2 border-red-900 sm:inline md:px-10">
           Search
         </button>
-        <Link href="">
-          <button className="border-2 border-red-900 px-5 md:px-10 py-2 text-red-900 hover:text-white hover:bg-red-900/50">
+        <Link href="/createItem">
+          <button className="px-5 py-2 text-red-900 border-2 border-red-900 md:px-10 hover:text-white hover:bg-red-900/50">
             List Items
           </button>
         </Link>
       </section>
       <hr className="mt-4" />
 
-      <section className="flex py-3 space-x-4 text-xs md:text-sm whitespace-nowrap justify-center px-6">
+      <section className="flex justify-center px-6 py-3 space-x-4 text-xs md:text-sm whitespace-nowrap">
         <p className="link">Home</p>
         <p className="link">Dresses</p>
         <p className="link">Shirts</p>
-        <p className="link hidden sm:inline">Trousers</p>
-        <p className="link hidden sm:inline">Sneakers</p>
-        <p className="link hidden md:inline">Sandals</p>
-        <p className="link hidden lg:inline">Caps</p>
-        <p className="link hidden lg:inline">Cooperate Wears</p>
-        <p className="link hidden lg:inline">Suits</p>
-        <p className="link hidden xl:inline">Kaftans</p>
-        <p className="link hidden xl:inline">Blouses</p>
-        <p className="link hidden xl:inline">Skirts</p>
+        <p className="hidden link sm:inline">Trousers</p>
+        <p className="hidden link sm:inline">Sneakers</p>
+        <p className="hidden link md:inline">Sandals</p>
+        <p className="hidden link lg:inline">Caps</p>
+        <p className="hidden link lg:inline">Cooperate Wears</p>
+        <p className="hidden link lg:inline">Suits</p>
+        <p className="hidden link xl:inline">Kaftans</p>
+        <p className="hidden link xl:inline">Blouses</p>
+        <p className="hidden link xl:inline">Skirts</p>
         <p className="link">More</p>
       </section>
     </div>

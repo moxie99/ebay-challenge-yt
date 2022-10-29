@@ -16,8 +16,8 @@ const Home: NextPage = () => {
     "marketplace"
   );
 
-  const { data: listings, isLoading } = useActiveListings(contract);
-  console.log(listings);
+  const { data: listings, isLoading: loading } = useActiveListings(contract);
+
   return (
     <div>
       <Head>
@@ -27,26 +27,26 @@ const Home: NextPage = () => {
 
       <Header />
 
-      <main className="max-w-6xl mx-auto p-5 py-5">
-        {isLoading ? (
+      <main className="max-w-6xl p-5 py-5 mx-auto">
+        {loading ? (
           <p className="text-center text-red-900 animate-bounce">
             Loading Listings ....
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <div className="grid max-w-6xl grid-cols-1 gap-5 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {listings?.map((listing) => (
               <div
                 key={listing.id}
-                className="flex flex-col card hover:scale-110 transition-all duration-150 ease-out"
+                className="flex flex-col transition-all duration-150 ease-out card hover:scale-110"
               >
-                <div className="flex-1 flex flex-col pb-2 items-center">
+                <div className="flex flex-col items-center flex-1 pb-2">
                   <MediaRenderer src={listing.asset.image} className="w-44" />
                 </div>
                 <div className="pt-2 space-y-4">
                   <div>
                     <h2 className="text-lg truncate">{listing.asset.name}</h2>
                     <hr />
-                    <p className="text-sm text-gray-700 mt-3 truncate">
+                    <p className="mt-3 text-sm text-gray-700 truncate">
                       {listing.asset.description}
                     </p>
                   </div>
