@@ -18,6 +18,7 @@ import {
 } from "@thirdweb-dev/sdk";
 import network from "../utils/network";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 interface Props {}
 
@@ -32,8 +33,6 @@ function createItem({}: Props): ReactElement {
     process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,
     "marketplace"
   );
-
-  console.log("address:" + address);
 
   //   collection contract
   const { contract: collectionContract } = useContract(
@@ -96,7 +95,7 @@ function createItem({}: Props): ReactElement {
         },
         {
           onSuccess(data, variables, context) {
-            console.log(data, variables, context);
+            toast.success(`${data}, ${variables}, ${context}`);
             router.push("/");
           },
 
@@ -121,7 +120,7 @@ function createItem({}: Props): ReactElement {
         },
         {
           onSuccess(data, variables, context) {
-            console.log(data, variables, context);
+            toast.success(`${data}, ${variables}, ${context}`);
             router.push("/");
           },
 

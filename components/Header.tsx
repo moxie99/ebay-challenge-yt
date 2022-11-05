@@ -64,7 +64,7 @@ function Header({}: Props): ReactElement {
             />
           </Link>
         </div>
-        <button className="flex items-center hidden w-20 space-x-2 lg:flex">
+        <button className="items-center hidden w-20 space-x-2 lg:flex">
           <p className="text-sm text-gray-800">Shop by Category</p>
           <ChevronDownIcon className="flex-shrink-0 h-4" />
         </button>

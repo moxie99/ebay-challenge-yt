@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from "react";
 import Header from "../components/Header";
 import { useAddress, useContract } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 type Props = {};
 
@@ -22,7 +23,23 @@ function addItem({}: Props) {
     if (!contract || !address) return;
 
     if (!image) {
-      alert("Please select an image");
+      toast.success("Please select an image", {
+        position: "bottom-center",
+        style: {
+          width: "320px",
+          height: "100px",
+          backgroundColor: "#fff",
+          color: "#61181E",
+          fontSize: 18,
+          fontWeight: "bold",
+        },
+        icon: "👏",
+        duration: 3000,
+        iconTheme: {
+          primary: "#000",
+          secondary: "#61181E",
+        },
+      });
       return;
     }
 
@@ -47,7 +64,7 @@ function addItem({}: Props) {
       const tokenId = transaction.id;
       const nft = await transaction.data();
 
-      console.log({ receipt, tokenId, nft });
+      toast.success(`${receipt}, ${tokenId}, ${nft}`);
       // redirect to homepage
       router.push("/");
     } catch (error) {
